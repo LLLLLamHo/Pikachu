@@ -14,7 +14,6 @@ class Page {
  * @returns pageObj
  */
 function extend_page( pageObj ) {
-
     let page = new Page();
     page.__proto__ = pageObj;
     return page;

@@ -1,9 +1,6 @@
-
-const mixin = function () { 
-    console.log( b );
-    for ( let key in b ) { 
-        console.log( b['bb'] );
-    }
+class bb { 
+    
+    aaa() { }
 }
 
 class c { 
@@ -11,16 +8,10 @@ class c {
     
 }
 
-class b { 
-    static bb() { }
 
-    static bb2() { }
-}
-
-class a { 
-    static aa() { }
-}
+let aa1 = new aa('asd');
+let aa2 = new aa( 'ssss' );
 
 
-mixin( a );
-console.log( a );
+console.log('123')
+

@@ -2,7 +2,7 @@
 'use strict';
 
 const path = require( 'path' );
-const get_config = require( '../lib/get_config' );
+const get_config = require( '../utils/get_config' );
 const run = require( './run' );
 
 //是否指定配置文件
