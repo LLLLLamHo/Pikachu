@@ -8,6 +8,7 @@ const mixin = function () {
 
 class c { 
     static cc() { }
+    
 }
 
 class b { 
