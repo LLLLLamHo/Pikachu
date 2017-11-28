@@ -6,7 +6,8 @@
   "bin": "./bin/pikachu",
   "directories": {},
   "scripts": {
-    "run": "./bin/pikachu --config ./demo/pikachu.config.js"
+    "run": "./bin/pikachu --config ./demo/pikachu.config.js",
+    "test": "_mocha -u tdd --timeout 9999999 --colors"
   },
   "devDependencies": {
     "chai": "^4.1.2",

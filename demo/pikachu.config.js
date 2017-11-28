@@ -11,7 +11,7 @@ Pikachu.startText( '测试', function () {
             devtools: false
         } )
             .then( async ( browser ) => {
-                let page = await Pikachu.newPage( 'home', { viewType: 'iPhone 6',url: 'http://m.zuzuche.com'});
+                let page = await browser.openPage( 'home', { viewType: 'iPhone 6',url: 'http://m.zuzuche.com'});
                 done();
             } );
     } )
