@@ -1,25 +1,22 @@
+class bb { 
+    
+    aaa() { }
+}
 
-const mixin = function () { 
-    console.log( b );
-    for ( let key in b ) { 
-        console.log( b['bb'] );
+class aa extends bb{ 
+    constructor( name ) { 
+        super( name );
+        this.aaa = name;
+    }
+
+    say() { 
+
     }
 }
 
-class c { 
-    static cc() { }
-}
-
-class b { 
-    static bb() { }
-
-    static bb2() { }
-}
-
-class a { 
-    static aa() { }
-}
+let aa1 = new aa('asd');
+let aa2 = new aa( 'ssss' );
 
 
-mixin( a );
-console.log( a );
+console.log('123')
+
