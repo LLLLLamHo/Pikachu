@@ -1,0 +1,20 @@
+{
+  "name": "pikachu",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "bin": "./bin/pikachu",
+  "directories": {},
+  "scripts": {
+    "run": "./bin/pikachu --config ./demo/pikachu.config.js"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "colors": "^1.1.2",
+    "mocha": "^3.5.3",
+    "puppeteer": "^0.12.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}

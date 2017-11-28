@@ -1,0 +1,46 @@
+
+var spawn = require( 'child_process' ).spawn;
+
+module.exports = function ( path ) {
+
+    var args = [
+        "/Users/lamho/Desktop/pikachu/node_modules/mocha/bin/_mocha",
+        "-u",
+        "tdd",
+        "--timeout",
+        "999999999",
+        "--colors",
+        path
+    ];
+
+    var proc = spawn( process.execPath, args );
+
+    proc.on( 'exit', function ( code, signal ) {
+        process.on( 'exit', function () {
+            if ( signal ) {
+                process.kill( process.pid, signal );
+            } else {
+                process.exit( code );
+            }
+        } );
+    } );
+
+    // terminate children.
+    process.on( 'SIGINT', function () {
+        proc.kill( 'SIGINT' ); // calls runner.abort()
+        proc.kill( 'SIGTERM' ); // if that didn't work, we're probably in an infinite loop, so make it die.
+    } );
+
+    // console child msg
+    proc.stdout.on( 'data', ( data ) => {
+        console.log( `${data}` );
+    } );
+
+    // console child err
+    proc.stderr.on( 'data', ( data ) => {
+        console.log( `${data}` );
+    } );
+}
+
+
+

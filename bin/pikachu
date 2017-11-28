@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+'use strict';
+
+const path = require( 'path' );
+const get_config = require( '../lib/get_config' );
+const run = require( './run' );
+
+//是否指定配置文件
+let configData = get_config();
+
+run(configData);
+
+
+
