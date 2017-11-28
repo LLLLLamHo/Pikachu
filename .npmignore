@@ -1,0 +1,9 @@
+/node_modules/
+*/node_modules/
+.idea/
+.vscode/
+.DS_Store/
+*/.DS_Store/
+/demo/
+/log/
+package-lock.json
