@@ -1,11 +1,10 @@
 const chai = require( 'chai' );
 expect = chai.expect;
-const Pikachu = require( '../../lib/Pikachu' );
 
 
 function openPage( browser ) {
     return new Promise( async ( resolve, reject ) => {
-        let page = await browser.openPage( 'home' );
+        let page = await browser.getPageFromList( 'home' );
         await resolve( page );
     } )
         .then( ( page ) => {
