@@ -45,7 +45,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "run",
+            "name": "runfile",
             "program": "${file}"
         }
     ]
