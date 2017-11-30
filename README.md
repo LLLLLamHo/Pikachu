@@ -21,12 +21,12 @@ npm install pikachu --save-dev
 
 ## 实现功能
 
-- <input type="checkbox" checked="true" disabled="true"> 开启浏览器
-- <input type="checkbox" checked="true" disabled="true"> 打开页面
-- <input type="checkbox" checked="true" disabled="true"> 对页面进行dom操作
-- <input type="checkbox" checked="true" disabled="true"> 测试断言
-- <input type="checkbox" disabled="true"> 页面数据抓取
-- <input type="checkbox" disabled="true"> 截图
+- [x] 开启浏览器
+- [x] 打开页面
+- [x] 对页面进行dom操作
+- [x] 测试断言
+- [ ] 页面数据抓取
+- [ ] 截图
 
 
 ## 使用文档
