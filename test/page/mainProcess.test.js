@@ -1,11 +1,13 @@
 const chai = require( 'chai' ),
     expect = chai.expect;
 
-const _$ = require('../../puppeteer/querySlt');
+// const _$ = require('../../lib/Page');
+const _$ = require('../../lib/Page');
 
 async function testMainProcess(page) {
 
-  await _$.getPage(page);
+  // await _$.getPage(page);
+  console.log(_$(page));
 
   /**
    * selector classname group
@@ -28,7 +30,7 @@ async function testMainProcess(page) {
 
   // LIST
   const BOOKBTN = '#J-car-info > div > div:nth-child(3) > div.os-suply-box.J-os-suply-box > div.os-suply > ul > li > a';
-"#J-car-info > div > div:nth-child(3) > div.os-suply-box.J-os-suply-box > div.os-suply > ul > li > a"
+
   // BOOK
   const TITLESELECT = '#title';
   const FIRSTNAMEINPUT = 'body > div.os-main.J-os-main.container.clearfix > div.os-content.has-coupon.fl > div.J-driver-information > div > ul:nth-child(5) > li.valid > p:nth-child(2) > input[type="text"]';
@@ -37,6 +39,12 @@ async function testMainProcess(page) {
 
 
   return new Promise( async ( resolve, reject ) => {
+
+      // await resolve(_$(page));
+
+      // let Page = new _$(page);
+      // resolve(1);
+
       // for home page
       await page.click(SEARCHINPUT);
       await page.waitFor(1000);
@@ -54,8 +62,6 @@ async function testMainProcess(page) {
       await page.waitFor(2*1000);
       await page.click(PICKUPTIMEVALUE);
       await page.waitFor(2*1000);
-      // await page.click(DROPOFFDADE);
-      // await page.waitFor(2*1000);
       await page.click(DROPOFFTIME);
       await page.waitFor(2*1000);
       await page.click(DROPOFFTIMEVALUE);
@@ -70,12 +76,9 @@ async function testMainProcess(page) {
       await page.waitForNavigation();
 
       await page.waitFor(5000);
-
-      const searchInput = await _$.query(SEARCHINPUT);
-
-      resolve(searchInput);
   } )
     .then( ( data ) => {
+        // console.log(data);
         expect( data ).to.not.be.null;
         // let { rentTopBox, POITopBox, rentContent, poiContent, rentContentClassName } = data;
         //
