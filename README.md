@@ -1,6 +1,6 @@
 # Pikachu
 
-![](https://github.com/LLLLLamHo/Pikachu/static.logo.jpeg)
+![](https://github.com/LLLLLamHo/Pikachu/blob/dev_lam/static/logo.jpeg)
 
 这是一个基于Google开发团队研发的前端自动化测试工具[puppeteer](https://github.com/GoogleChrome/puppeteer)进行二次封装的一个自动化测试，称为Pikachu。
 
