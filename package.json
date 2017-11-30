@@ -7,7 +7,9 @@
   "directories": {},
   "scripts": {
     "run": "./bin/pikachu --config ./demo/pikachu.config.js",
-    "test": "_mocha -u tdd --timeout 9999999 --colors"
+    "test": "_mocha -u tdd --timeout 9999999 --colors",
+    "test_index": "mocha ./test/easyrentcars.test.js -t 10000000",
+    "sh_test_index": "sh shell/test.sh"
   },
   "devDependencies": {
     "chai": "^4.1.2",
