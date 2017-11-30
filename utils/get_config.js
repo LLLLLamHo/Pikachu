@@ -25,7 +25,6 @@ module.exports = function () {
     if ( designationConfigPath != '' ) {
 
         const DESIGNATION_PATH = path.join( RUN_PATH, designationConfigPath );
-
         if ( fs.existsSync( DESIGNATION_PATH ) ) {
             return DESIGNATION_PATH;
         } else {
