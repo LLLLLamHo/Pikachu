@@ -60,5 +60,5 @@ Pikachu.startText( '测试', function () {
 
 ```
 
-值得留意的是，当打开浏览器后，后续的对浏览器和页面的操作来至于`browser`和`page`这个两个对象，详细情况可以查看[API](https://github.com/LLLLLamHo/Pikachu/blob/dev_lam/document/api.md)
+值得留意的是，当打开浏览器后，后续的对浏览器和页面的操作来至于`browser`和`page`这个两个对象，详细使用可以查看[API](https://github.com/LLLLLamHo/Pikachu/blob/dev_lam/document/api.md)
 
