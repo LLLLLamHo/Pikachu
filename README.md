@@ -31,8 +31,8 @@ npm install pikachu --save-dev
 
 ## 使用文档
 
-- [快速开始](https://github.com/LLLLLamHo/Pikachu/blob/dev_lam/document/fast.md)
-- [API](https://github.com/LLLLLamHo/Pikachu/blob/dev_lam/document/api.md)
+- [快速开始](https://github.com/LLLLLamHo/Pikachu/blob/dev_lam/docs/fast.md)
+- [API](https://github.com/LLLLLamHo/Pikachu/blob/dev_lam/docs/api.md)
 
 
 
