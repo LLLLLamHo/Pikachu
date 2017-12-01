@@ -1,13 +1,13 @@
 # API
 
-## class Pikachu
+## **class Pikachu**
 
 Pikachu核心class，提供开启浏览器和协助测试的工具函数  
 Pikachu其实是对`puppeteer`的一层封装，其实`page`和`browser`对象都是继承与`puppeteer`的`page`和`browser`对象的，所以是可以直接使用puppeteer里面的api以及参数的，详细api请参考[puppeteerAPI](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md)  
   
 该API文档只针对Pikachu对puppeteer的增强API。
 
-#### Pikachu.openBrowser
+### **Pikachu.openBrowser**
 
 只接受一个Object的参数，用来配置浏览器的开发必要参数
 
@@ -28,7 +28,7 @@ Pikachu.openBrowser( {
     .then( async ( browser ) => {} );
 ```
 
-#### Pikachu.startText
+### **Pikachu.startText**
 
 Pikachu除了对`puppeteer`进行进行封装之外，还内置了`mocha`和`chai`两个库，用于对浏览器的操作进行测试和断言，其中`startText`相当于是`mocha`的`describe`。
 
@@ -56,7 +56,7 @@ Pikachu.startText( '测试', function () {
 } );
 ```
 
-#### Pikachu.expect
+### **Pikachu.expect**
 
 Pikachu提供一个expect函数，相当于是`chai`的expect。并且断言语句也是相同，最大限度减低了学习难度，保持和chai的一致性。
 
@@ -70,11 +70,11 @@ Pikachu.startText( '测试', function () {
 } );
 ```
 
-## class Browser
+## **class Browser**
 
 当调用`Pikachu.openBrowser`后，会返回一个browser对象，改对象拥有对浏览器操作的API，当然你可以使用`puppeteer`的`browser`对象提供的方法，也可以使用二次封装的一些简便方法。
 
-#### Pikachu.openPage
+### **Pikachu.openPage**
 
 - pageName \<string> 必须传入页面命名
 - options \<object> 选传，为页面的配置参数
@@ -87,7 +87,7 @@ Pikachu.openBrowser( {
     devtools: false
 } )
     .then( async ( browser ) => {
-        let page = awaibrowser.openPage( 'home',    {
+        let page = await browser.openPage( 'home',    {
                 viewType: 'iPhone 6',
                 url: 'http://m.zuzuche.com'
             });
@@ -95,7 +95,37 @@ Pikachu.openBrowser( {
     } );
 ```
 
+### **Pikachu.savePageToList**
 
+browser提供了一个对于创建了的page储存到内部的一个方法，用于记录所打开的page对象。
+
+- pageName \<string> 必须传入页面命名
+- pageObj \<object> 页面对象
+
+```javascript
+browser.savePageToList('home',pageObj);
+```
+
+### **Pikachu.getPageFromList**
+
+browser提供了一个获取内部打开页面的指定page对象。
+
+- pageName \<string> 必须传入页面命名
+- returns \<object> 页面对象
+
+```javascript
+let page = browser.getPageFromList('home');
+```
+
+### **Pikachu.removePageFromList**
+
+browser提供了一个用于删除内部记录page对象的方法
+
+- pageName \<string> 必须传入页面命名
+
+```javascript
+browser.removePageFromList('home');
+```
 
 
 
