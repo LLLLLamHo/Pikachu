@@ -1,13 +1,36 @@
 {
   "name": "pikachu",
   "version": "1.0.1",
-  "description": "",
+  "description": "基于puppeteer的自动化测试框架",
   "main": "index.js",
   "bin": "./bin/pikachu",
   "directories": {},
+  "files": [
+    "bin",
+    "lib",
+    "utils"
+  ],
+  "keywords": [
+    "zzc",
+    "zzche",
+    "test",
+    "puppeteer",
+    "pikachu",
+    "Pikachu"
+  ],
+  "maintainers": [
+    {
+      "name": "LamHo",
+      "email": "linhao.4zhong@163.com"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/LLLLLamHo/Pikachu/issues"
+  },
+  "respositories": {
+    "url": "https://github.com/LLLLLamHo/Pikachu"
+  },
   "scripts": {
-    "run": "./bin/pikachu --config ./demo/pikachu.config.js",
-    "run2": "./bin/pikachu",
     "test": "_mocha -u tdd --timeout 9999999 --colors"
   },
   "devDependencies": {
@@ -16,7 +39,12 @@
     "mocha": "^3.5.3",
     "puppeteer": "^0.13.0"
   },
-  "author": "",
+  "author": "LamHo",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "chai": "^4.1.2",
+    "colors": "^1.1.2",
+    "mocha": "^3.5.3",
+    "puppeteer": "^0.13.0"
+  }
 }
