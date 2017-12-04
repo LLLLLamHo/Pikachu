@@ -6,4 +6,5 @@
 */.DS_Store/
 /demo/
 /log/
+/static/
 package-lock.json
