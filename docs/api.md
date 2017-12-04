@@ -178,7 +178,7 @@ page对象是通过调用`browser.openPage`之后返回的页面对象，是当
         - right \<string> 右边距，可以写入单位
         - bottom \<string> 下边距，可以写入单位
         - left \<string> 左边距，可以写入单位
-- return \<Promise\<Buffer>> 返回PDF的Buffer。如果创建失败，那么会返回一个false。
+- return \<Promise\<Buffer>> 返回PDF的Buffer。如果创建失败，那么会返回一个null。
            
  
 将当前打开的页面进行快照，生成PDF到指定的文件目录。  

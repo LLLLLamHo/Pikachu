@@ -14,7 +14,7 @@ function testCutPdf( browser ) {
         await resolve( result );
     } )
         .then( ( result ) => {
-            expect( result ).to.be.not.false;
+            expect( result ).to.be.not.null;
         } );
 }
 
