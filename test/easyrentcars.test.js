@@ -23,7 +23,7 @@ describe( '主流程测试', function () {
                 if ( browser ) {
                   browserTarget = browser;
                   pageTarget = await browserTarget.openPage('home', {
-                      url: 'https://www.easyrentcars.com'
+                      url: 'https://www.zuzuche.com'
                   } );
                   await Promise.resolve(pageTarget);
                   await pageTarget.setViewport({
@@ -47,6 +47,6 @@ describe( '主流程测试', function () {
     } );
 
     it( '测试主流程，包括搜索／下单'.yellow, () => {
-      return mainProcessTest ( pageTarget );
+        return mainProcessTest ( pageTarget );
     });
 } );
