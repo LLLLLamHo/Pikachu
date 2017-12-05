@@ -42,7 +42,8 @@ async function testMainProcess(page) {
 
       // await page.query(SEARCHINPUT);
       // await page.query(SEARCHINPUT).attr();
-      resolve(page.query(EXTINPUT).attr());
+      console.log(await page.query(EXTINPUT));
+      resolve(1);
 
       // for home page
       await page.click(SEARCHINPUT);
