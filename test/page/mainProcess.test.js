@@ -15,13 +15,13 @@ async function testMainProcess(page) {
   const COUNTRY = '#J-os-search-suggest > div.top-rental > div > ul > li:nth-child(2) > span';
   const CITY = '#J-os-search-suggest > div.top-rental > div > div.tabs-content-box.J-tabs-content-box.fl > div:nth-child(2) > div:nth-child(1) > ul > li:nth-child(1)';
   const PICKUPDADE = '#J-os-search > form > ul > li.os-search-pick-date.J-os-search-pick-date';
-  const PICKUPDADEVALUE = 'body > div.pickmeup.pmu-view-days > div:nth-child(1) > div.pmu-days > div:nth-child(27)';
+  const PICKUPDADEVALUE = `body > div.pickmeup.pmu-view-days > div:nth-child(1) > div.pmu-days > div:not(.pmu-disabled):nth-child(24)`;
   const PICKUPTIME = '#J-os-search > form > ul > li.os-search-pick-time.J-os-search-pick-time';
-  const PICKUPTIMEVALUE = 'body > div:nth-child(10) > dl > dd:nth-child(5)';
+  const PICKUPTIMEVALUE = `body > div:nth-child(10) > dl > dd:nth-child(${parseInt(Math.random() * 47 + 1, 10)})`;
   const DROPOFFDADE = '#J-os-search > form > ul > li.os-search-return-date.J-os-search-return-date';
-  const DROPOFFDADEVALUE = 'body > div.pickmeup.pmu-view-days > div:nth-child(2) > div.pmu-days > div:nth-child(12)';
+  const DROPOFFDADEVALUE = `body > div.pickmeup.pmu-view-days > div:nth-child(2) > div.pmu-days > div:not(.pmu-disabled):nth-child(8)`;
   const DROPOFFTIME = '#J-os-search > form > ul > li.os-search-return-time.J-os-search-return-time';
-  const DROPOFFTIMEVALUE = 'body > div:nth-child(11) > dl > dd:nth-child(8)';
+  const DROPOFFTIMEVALUE = `body > div:nth-child(11) > dl > dd:nth-child(${parseInt(Math.random() * 47 + 1, 10)})`;
   const SEARCHBTN = '#J-os-search > form > ul > li.os-search-btn.J-os-search-btn > input';
 
   // LIST
@@ -42,8 +42,12 @@ async function testMainProcess(page) {
 
       // await page.query(SEARCHINPUT);
       // await page.query(SEARCHINPUT).attr();
-      console.log(await page.query(EXTINPUT));
-      resolve(1);
+      // console.log(await page._$(EXTINPUT).attr('type'));
+      // resolve(1);
+
+      const watchDog = page.waitForFunction('window.innerWidth < 1000');
+      await watchDog;
+      console.log("watchDog");
 
       // for home page
       await page.click(SEARCHINPUT);
@@ -66,8 +70,10 @@ async function testMainProcess(page) {
       await page.waitFor(2*1000);
       await page.click(DROPOFFTIMEVALUE);
       await page.waitFor(2*1000);
+
       await page.click(SEARCHBTN);
       await page.waitForNavigation();
+      resolve(1);
 
       // for car list page
       await page.waitFor(CHECKBOX);

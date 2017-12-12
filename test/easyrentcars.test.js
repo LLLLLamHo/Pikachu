@@ -23,7 +23,8 @@ describe( '主流程测试', function () {
                 if ( browser ) {
                   browserTarget = browser;
                   pageTarget = await browserTarget.openPage('home', {
-                      url: 'https://www.zuzuche.com'
+                      // url: 'https://www.zuzuche.com'
+                      url: 'https://www.easyrentcars.com'
                   } );
                   await Promise.resolve(pageTarget);
                   await pageTarget.setViewport({

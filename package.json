@@ -31,14 +31,10 @@
     "url": "https://github.com/LLLLLamHo/Pikachu"
   },
   "scripts": {
-<<<<<<< HEAD
     "run": "./bin/pikachu --config ./demo/pikachu.config.js",
-    "test": "_mocha -u tdd --timeout 9999999 --colors",
     "test_index": "mocha ./test/easyrentcars.test.js -t 10000000",
-    "sh_test_index": "sh shell/test.sh"
-=======
+    "sh_test_index": "sh shell/test.sh",
     "test": "_mocha -u tdd --timeout 9999999 --colors"
->>>>>>> origin/master
   },
   "devDependencies": {
     "chai": "^4.1.2",
