@@ -1,6 +1,8 @@
 const chai = require( 'chai' ),
     expect = chai.expect;
 
+const _form = require('../../lib/form.data.js');
+
 async function testMainProcess(page) {
 
   /**
@@ -45,58 +47,47 @@ async function testMainProcess(page) {
       // console.log(await page._$(EXTINPUT).attr('type'));
       // resolve(1);
 
-      const watchDog = page.waitForFunction('window.innerWidth < 1000');
-      await watchDog;
-      console.log("watchDog");
+      // const watchDog = page.waitForFunction('window.innerWidth < 1000');
+      // await watchDog;
+      // console.log("watchDog");
 
       // for home page
-      await page.click(SEARCHINPUT);
-      await page.waitFor(1000);
-      await page.click(COUNTRY);
-      await page.waitFor(2*1000);
-      await page.click(CITY);
-      await page.waitFor(2*1000);
-      await page.click(PICKUPDADE);
-      await page.waitFor(2*1000);
-      await page.click(PICKUPDADEVALUE);
-      await page.waitFor(2*1000);
-      await page.click(DROPOFFDADEVALUE);
-      await page.waitFor(2*1000);
-      await page.click(PICKUPTIME);
-      await page.waitFor(2*1000);
-      await page.click(PICKUPTIMEVALUE);
-      await page.waitFor(2*1000);
-      await page.click(DROPOFFTIME);
-      await page.waitFor(2*1000);
-      await page.click(DROPOFFTIMEVALUE);
-      await page.waitFor(2*1000);
+      await page._$(SEARCHINPUT)._click(1000);
+      await page._$(COUNTRY)._click(2*1000);
+      await page._$(CITY)._click(2*1000);
+      await page._$(PICKUPDADE)._click(2*1000);
+      await page._$(PICKUPDADEVALUE)._click(2*1000);
+      await page._$(DROPOFFDADEVALUE)._click(2*1000);
+      await page._$(PICKUPTIME)._click(2*1000);
+      await page._$(PICKUPTIMEVALUE)._click(2*1000);
+      await page._$(DROPOFFTIME)._click(2*1000);
+      await page._$(DROPOFFTIMEVALUE)._click(2*1000);
+      await page._$(SEARCHBTN)._click();
 
-      await page.click(SEARCHBTN);
       await page.waitForNavigation();
-      resolve(1);
+      // resolve(1);
 
       // for car list page
       await page.waitFor(CHECKBOX);
-      await page.click(CHECKBOX);
-      await page.waitFor(2*1000);
+      await page._$(CHECKBOX)._click(2*1000);
       await page.waitFor(BOOKBTN);
       let jumpHref = await page.$eval(BOOKBTN, btn => btn.href);
       await page.goto(jumpHref);
 
       // for car book page
       await page.waitFor(3*1000);
-      await page.select(TITLESELECT, 'Mr.');
-      await page.type(FIRSTNAMEINPUT, 'test', { delay: 100 });
-      await page.type(LASTNAMEINPUT, 'pengzhi', { delay: 100 });
-      await page.type(EMAILADRESSINPUT, 'pengzhiyang@zuzuche.com', { delay: 100 });
-      await page.select(PHONECODE, '852');
-      await page.type(PHONE, '15521278180', { delay: 100 });
+      await page._$(TITLESELECT)._select(_form.title);
+      await page._$(FIRSTNAMEINPUT).input(_form.firstname, 100);
+      await page._$(LASTNAMEINPUT).input(_form.lastname, 100);
+      await page._$(EMAILADRESSINPUT).input(_form.email, 100);
+      await page._$(PHONECODE)._select(_form.phonecode, 100);
+      await page._$(PHONE).input(_form.phone, 100);
       await page.waitFor(2*1000);
-      await page.click(RESERVENOW);
+      await page._$(RESERVENOW)._click();
 
       await page.waitFor(5000);
 
-      // await resolve(1);
+      await resolve(1);
   } )
     .then( ( data ) => {
         console.log(data);

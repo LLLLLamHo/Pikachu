@@ -19,8 +19,8 @@ Page.js 使用说明
 * `page.query(selector)`
 传入指定元素的id／类名／标签名等，fn返回元素对象，对象包含有元素的id，类名，属性集合，html字符串
 
-* `page._$(selector).click(timer)`
-`_$` 传入指定元素的id／类名／标签名等，获取到元素引用后，经 `.click(timer)` 可模拟触发元素点击操作，
+* `page._$(selector)._click(timer)`
+`_$` 传入指定元素的id／类名／标签名等，获取到元素引用后，经 `._click(timer)` 可模拟触发元素点击操作，
 参数 `timer` 指定当点击后延迟多久到下一个操作，fn返回Promise对象，当元素成功被点击，
 返回的Promise对象将会被resolve
 
