@@ -4,7 +4,7 @@
 
 Pikachu核心class，提供开启浏览器和协助测试的工具函数  
 Pikachu其实是对`puppeteer`的一层封装，其实`page`和`browser`对象都是继承与`puppeteer`的`page`和`browser`对象的，所以是可以直接使用puppeteer里面的api以及参数的，详细api请参考[puppeteerAPI](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md)  
-  
+
 该API文档只针对Pikachu对puppeteer的增强API。
 
 ### **Pikachu.openBrowser(option)**
@@ -179,8 +179,8 @@ page对象是通过调用`browser.openPage`之后返回的页面对象，是当
         - bottom \<string> 下边距，可以写入单位
         - left \<string> 左边距，可以写入单位
 - return \<Promise\<Buffer>> 返回PDF的Buffer。如果创建失败，那么会返回一个null。
-           
- 
+
+
 将当前打开的页面进行快照，生成PDF到指定的文件目录。  
 调用参数和puppeteer一致，[API](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pagepdfoptions)。  
 
@@ -197,7 +197,27 @@ let buffer = await page.cutPDF( {
 } );
 ```
 
+### `page._$(selector)`
+传入指定元素的id／类名／标签名等，fn返回page对象
 
+### `page.query(selector)`
+传入指定元素的id／类名／标签名等，fn返回元素对象，对象包含有元素的id，类名，属性集合，html字符串
 
+### `page._$(selector)._click(timer)`
+`_$` 传入指定元素的id／类名／标签名等，获取到元素引用后，经 `._click(timer)` 可模拟触发元素点击操作，
+参数 `timer` 指定当点击后延迟多久到下一个操作，fn返回Promise对象，当元素成功被点击，
+返回的Promise对象将会被resolve
 
+### `page._$(selector).focus(timer)`
+`_$` 传入指定元素的id／类名／标签名等，获取到元素引用后，经 `.focus(timer)` 可模拟触发元素聚焦操作，
+参数 `timer` 指定当聚焦后延迟多久到下一个操作，fn返回Promise对象，当元素成功被聚焦，
+返回的Promise对象将会被resolve
 
+### `page._$(selector).input(text, delay, timer)`
+`_$` 传入指定元素的id／类名／标签名等，获取到元素引用后，经 `.input(text, delay, timer)`
+可模拟表单输入操作，参数 `text` 指定输入文本，参数 `delay` 指定每输入一个字符间隔延迟，参数 `timer` 指定当输入后延迟多久到下一个操作，fn返回Promise对象，当元素成功被输入，返回的Promise对象将会被resolve
+
+### `page._$(selector).select(option, timer)`
+`_$` 传入指定元素的id／类名／标签名等，获取到元素引用后，经 `.select(option, timer)` 可模拟触发元素选择操作，
+参数 `option` 指定选项，参数 `timer` 指定当选择后延迟多久到下一个操作，fn返回Promise对象，当元素成功被选择，
+返回的Promise对象将会被resolve
