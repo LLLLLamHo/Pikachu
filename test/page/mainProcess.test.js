@@ -14,22 +14,22 @@ async function testMainProcess(page) {
 
   // INDEX
   const SEARCHINPUT = '#J-os-search > form > ul > li.os-search-pick-up.J-search-place > input.J-pick-up-input';
-  const COUNTRY = '#J-os-search-suggest > div.top-rental > div > ul > li:nth-child(2) > span';
-  const CITY = '#J-os-search-suggest > div.top-rental > div > div.tabs-content-box.J-tabs-content-box.fl > div:nth-child(2) > div:nth-child(1) > ul > li:nth-child(1)';
+  const COUNTRY = '#J-search-suggest > div.top-rental > div > ul > li:nth-child(3) > span';
+  const CITY = '#J-search-suggest > div.top-rental > div > div.tabs-content-box.J-tabs-content-box.fl > div:nth-child(3) > div:nth-child(1) > ul > li:nth-child(1)';
   const PICKUPDADE = '#J-os-search > form > ul > li.os-search-pick-date.J-os-search-pick-date';
-  const PICKUPDADEVALUE = `body > div.pickmeup.pmu-view-days > div:nth-child(1) > div.pmu-days > div:not(.pmu-disabled):nth-child(24)`;
+  const PICKUPDADEVALUE = `body > div.pickmeup.pmu-view-days > div:nth-child(2) > div.pmu-days > div:not(.pmu-disabled):nth-child(${5 + parseInt(Math.random() * 25, 10)})`;
   const PICKUPTIME = '#J-os-search > form > ul > li.os-search-pick-time.J-os-search-pick-time';
-  const PICKUPTIMEVALUE = `body > div:nth-child(10) > dl > dd:nth-child(${parseInt(Math.random() * 47 + 1, 10)})`;
+  const PICKUPTIMEVALUE = `body > div:nth-child(22) > dl > dd:nth-child(${parseInt(Math.random() * 43 + 1, 10)})`;
   const DROPOFFDADE = '#J-os-search > form > ul > li.os-search-return-date.J-os-search-return-date';
-  const DROPOFFDADEVALUE = `body > div.pickmeup.pmu-view-days > div:nth-child(2) > div.pmu-days > div:not(.pmu-disabled):nth-child(8)`;
+  const DROPOFFDADEVALUE = `body > div.pickmeup.pmu-view-days > div:nth-child(2) > div.pmu-days > div:not(.pmu-disabled):nth-child(${5 + parseInt(Math.random() * 25, 10)})`;
   const DROPOFFTIME = '#J-os-search > form > ul > li.os-search-return-time.J-os-search-return-time';
-  const DROPOFFTIMEVALUE = `body > div:nth-child(11) > dl > dd:nth-child(${parseInt(Math.random() * 47 + 1, 10)})`;
+  const DROPOFFTIMEVALUE = `body > div:nth-child(23) > dl > dd:nth-child(${parseInt(Math.random() * 43 + 1, 10)})`;
   const SEARCHBTN = '#J-os-search > form > ul > li.os-search-btn.J-os-search-btn > input';
 
   // LIST
   // choose [Pay at Pickup], only test Pickup
   const CHECKBOX = '#J-car-info-filter #postpaid:last-of-type';
-  const BOOKBTN = '#J-car-info > div > div:nth-child(3) > div.os-suply-box.J-os-suply-box > div.os-suply > ul > li > a';
+  const BOOKBTN = '#J-car-info .os-suply-box.J-os-suply-box .os-suply ul > li a';
 
   // BOOK
   const TITLESELECT = '#title';
@@ -38,18 +38,9 @@ async function testMainProcess(page) {
   const EMAILADRESSINPUT = 'body > div.os-main.J-os-main.container.clearfix > div.os-content.has-coupon.fl > div.J-driver-information > div > ul:nth-child(5) > li:nth-child(3) > p:nth-child(2) > input[type="text"]';
   const PHONECODE = 'body > div.os-main.J-os-main.container.clearfix > div.os-content.has-coupon.fl > div.J-driver-information > div > ul:nth-child(5) > li:nth-child(4) > div > select';
   const PHONE = 'body > div.os-main.J-os-main.container.clearfix > div.os-content.has-coupon.fl > div.J-driver-information > div > ul:nth-child(5) > li:nth-child(4) > input';
-  const RESERVENOW = 'body > div.os-main.J-os-main.container.clearfix > div.os-content.has-coupon.fl > div.J-reserve > div > button';
+  const RESERVENOW = 'body > div.os-main.J-os-main.container.clearfix > div.os-content.has-coupon.fl > div.J-reserve > div > div.r-common-button-slot > div:nth-child(1) > button';
 
   return new Promise( async ( resolve, reject ) => {
-
-      // await page.query(SEARCHINPUT);
-      // await page.query(SEARCHINPUT).attr();
-      // console.log(await page._$(EXTINPUT).attr('type'));
-      // resolve(1);
-
-      // const watchDog = page.waitForFunction('window.innerWidth < 1000');
-      // await watchDog;
-      // console.log("watchDog");
 
       // for home page
       await page._$(SEARCHINPUT)._click(1000);
@@ -58,14 +49,9 @@ async function testMainProcess(page) {
       await page._$(PICKUPDADE)._click(2*1000);
       await page._$(PICKUPDADEVALUE)._click(2*1000);
       await page._$(DROPOFFDADEVALUE)._click(2*1000);
-      await page._$(PICKUPTIME)._click(2*1000);
-      await page._$(PICKUPTIMEVALUE)._click(2*1000);
-      await page._$(DROPOFFTIME)._click(2*1000);
-      await page._$(DROPOFFTIMEVALUE)._click(2*1000);
       await page._$(SEARCHBTN)._click();
 
       await page.waitForNavigation();
-      // resolve(1);
 
       // for car list page
       await page.waitFor(CHECKBOX);

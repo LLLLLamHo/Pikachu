@@ -16,21 +16,23 @@ let browserTarget = null,
 
 describe( '主流程测试', function () {
     before( '打开浏览器', ( done ) => {
-        Pikachu.openBrowser({
-          devtools: false
-        })
+        Pikachu.openBrowser()
             .then( async ( browser ) => {
                 if ( browser ) {
                   browserTarget = browser;
+
                   pageTarget = await browserTarget.openPage('home', {
                       // url: 'https://www.zuzuche.com'
-                      url: 'https://www.easyrentcars.com'
+                      url: 'https://www.easyrentcars.com/'
                   } );
+
                   await Promise.resolve(pageTarget);
+
                   await pageTarget.setViewport({
                       width: 1440,
                       height: 900
                   });
+
                   await done();
                 } else {
                     console.log( '浏览器无法启动！！！'.red );
