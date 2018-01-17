@@ -32,7 +32,7 @@
   },
   "scripts": {
     "run": "./bin/pikachu --config ./demo/pikachu.config.js",
-    "test_index": "mocha ./test/easyrentcars.test.js -t 10000000",
+    "erc_test": "mocha ./test/easyrentcars.test.js -t 10000000",
     "sh_test_index": "sh shell/test.sh",
     "test": "_mocha -u tdd --timeout 9999999 --colors"
   },
